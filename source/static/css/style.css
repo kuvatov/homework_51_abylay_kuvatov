@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(../media/cat.jpeg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    font-size: 20px;
+}
+.main_page {
+    min-height: 100vh;
+    text-align: center;
+    line-height: 100vh;
+}
+.main_container {
+    font-family: Arial sans-serif;
+    max-width: 1200px;
+    min-height: 100vh;
+    line-height: normal;
+    display: inline-block;
+}
+.main_cat_stats {
+    padding: 20px;
+}
+.main_cat_stats p{
+    color: yellow;
+}
+.main_cat_stats span{
+    color: white;
+}
+.main_cat_stats img{
+    width: 300px;
+    height: 300px;
+}

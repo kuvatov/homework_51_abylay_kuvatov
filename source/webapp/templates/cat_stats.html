@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>View</title>
+</head>
+<body>
+<div class="main main_cat_stats">
+    <div class="container container_cat_stats">
+        <img src="{% static image %}" alt="cat">
+        <p>Кот: <span>{{ name }}</span></p>
+        <p>Возраст: <span>{{ age }}</span></p>
+        <p>Уровень счастья: <span>{{ happiness }}</span></p>
+        {% if satiety > 100 %}
+        <p>Уровень сытости: <span>Кот перекормлен. Поиграйте с ним!</span></p>
+        {% else %}
+        <p>Уровень сытости: <span>{{ satiety }}</span></p>
+        {% endif %}
+        <form action="/cat_stats" method="post">
+            {% csrf_token %}
+            <select name="action">
+                <option value="" disabled selected hidden>Выберите действие</option>
+                <option value="play" name="play">поиграть с котом</option>
+                {% if state != "sleep" %}
+                <option value="eat" name="eat">покормить кота</option>
+                <option value="sleep" name="sleep">уложить спать кота</option>
+                {% endif %}
+            </select>
+            <br>
+            <input type="submit" value="подтвердить"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
